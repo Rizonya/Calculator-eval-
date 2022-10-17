@@ -88,7 +88,7 @@
 					str = str.toString();
 				} catch (error) {}
 			}}
-			Class="w-52 justify-center flex flex-col items-center h-24   rounded-xl cursor-pointer  bg-amber-300 "
+			Class="w-52 justify-center flex flex-col items-center h-24   rounded-xl cursor-pointer bg-red-900 text-white "
 		>
 			<p class="flex flex-row">=</p>
 		</Button>
