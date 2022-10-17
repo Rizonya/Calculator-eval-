@@ -1,12 +1,9 @@
 <script lang="ts">
-	import { parse } from 'cookie';
-	import { each } from 'svelte/internal';
  import Button from './CustomButton.svelte'
  import Undo from '$lib/images/undo-outline.svg'
  let grid = [['1','2','3','/'],['4','5','6','*'],['7','8','9','+']]
  let str:string = "Введите что нибудь";
  let sus = ['.','/','*','+','-']
- let nums = '0123456789'
  $:if(str==''){
 	str = "Введите что нибудь"
  }
@@ -16,17 +13,10 @@
 	console.log(str);
 	let dotCheck = key =='.'? !str.split(/[\/\*\+\-]/).at(-1)?.includes('.'):true;
 	let endIsNum = (str=='Введите что нибудь'||(sus.includes(str.at(-1)!)&&!sus.includes(key)))?true:!isNaN(parseInt(str.at(-1)!))
-	console.log(dotCheck);
-	
-	if(grid.flat().includes(key) || key =='.'||key=='-'){
-		console.log(1);
-		
+	if(grid.flat().includes(key) || key =='.'||key=='-'){	
 		if((endIsNum&&dotCheck)||(str =='-'&& !sus.includes(key)) || ( str == "Введите что нибудь"&&key =='-' )){
-			console.log(dotCheck);
-			
 			str!='Введите что нибудь' ? str += key : str = key
 		}
-		
 	}
  }
  function keyPressHandler(event:KeyboardEvent){
@@ -77,12 +67,4 @@
 			<p class="flex flex-row">=</p>
 		</Button>
 	</div>
-
 </div>
-
-
-
-
-<style>
-
-</style>
