@@ -1,15 +1,12 @@
 <script>
 	import './styles.css';
-	import "../app.css";
+	import '../app.css';
 </script>
 
 <div class="app">
-
 	<main class="flex flex-col justify-center container h-full w-full items-center">
 		<slot />
 	</main>
-
-	
 </div>
 
 <style>
@@ -29,6 +26,4 @@
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
-
-
 </style>
