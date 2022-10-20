@@ -8,7 +8,7 @@
 	];
 	const placeholder: string = 'Введите что нибудь';
 	let str: string = placeholder;
-	let sus = ['.', '/', '*', '+', '-'];
+	let marks = ['.', '/', '*', '+', '-'];
 	$: if (str == '') {
 		str = placeholder;
 	}
@@ -22,14 +22,13 @@
 						.at(-1)
 						?.includes('.')
 				: true;
-		let endIsNum =
-			str == placeholder || (sus.includes(str.at(-1)!) && !sus.includes(key))
+		let endIsNum =			str == placeholder || (marks.includes(str.at(-1)!) && !marks.includes(key))
 				? true
 				: !isNaN(parseInt(str.at(-1)!));
 		if (grid.flat().includes(key) || key == '.' || key == '-') {
 			if (
 				(endIsNum && dotCheck) ||
-				(str == '-' && !sus.includes(key)) ||
+				(str == '-' && !marks.includes(key)) ||
 				(str == placeholder && key == '-')
 			) {
 				str != placeholder ? (str += key) : (str = key);
